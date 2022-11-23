@@ -13,7 +13,7 @@ class Frog(pygame.sprite.Sprite):
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.centerx = WIDTH / 2
-        self.rect.bottom = HEIGHT - 10
+        self.rect.bottom = HEIGHT 
         self.speedx = 0
         self.speedy = 0
         self.groups = groups
@@ -47,25 +47,26 @@ class Frog(pygame.sprite.Sprite):
             self.rect.top = 0
 
 class Carro(pygame.sprite.Sprite):
-    def __init__(self, assets):
+    def __init__(self, assets,rua,vel,ini):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
 
         self.image = assets[METEOR_IMG]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.rect.x = WIDTH
-        self.rect.y =random.randint(70, 200)
-        self.speedx =random.randint(-3, -1)
+        self.rect.x = ini
+        self.rect.y = rua
+        self.speedx = vel
 
     def update(self):
         # Atualizando a posição do meteoro
         self.rect.x += self.speedx
         # se passar da tela
-        if  self.rect.right < 0 or self.rect.left > WIDTH:
+        if  self.rect.right < 0 and self.speedx<0 :
             self.rect.x = WIDTH
-            self.rect.y =random.randint(70, 200)
-            self.speedx =random.randint(-3, -1)
+        if  self.rect.left>WIDTH and self.speedx>0 :
+            self.rect.x = 0
+
 
 
 

@@ -3,6 +3,8 @@ from config import FPS, WIDTH, HEIGHT, BLACK, YELLOW, RED
 from assets import load_assets, DESTROY_SOUND, BOOM_SOUND, BACKGROUND, SCORE_FONT
 from sprites import Frog, Carro, Explosion
 
+#dicionario velocidade e local carros
+ruavel = [[520,-2,WIDTH],[520,-2,WIDTH*1.5],[440,1,0],[440,1,0-WIDTH*0.5],[360,-3,WIDTH],[360,-3,WIDTH*1.5],[280,2,0],[280,2,0-WIDTH*0.5],[200,-1,WIDTH],[200,-1,WIDTH*1.5],[120,3,0],[120,3,0-WIDTH*0.5],[60,-2,WIDTH],[60,-2,WIDTH*1.5]]
 
 def game_screen(window):
     # Variável para o ajuste de velocidade
@@ -23,8 +25,12 @@ def game_screen(window):
     player = Frog(groups, assets)
     all_sprites.add(player)
     # Criando os meteoros
-    for i in range(8):
-        Carros = Carro(assets)
+    for coord in ruavel:
+        rua = coord[0]
+        vel = coord[1]
+        ini = coord[2]
+        Carros = Carro(assets,rua,vel,ini)
+        print(rua,vel,ini)
         all_sprites.add(Carros)
         all_meteors.add(Carros)
 
@@ -54,13 +60,13 @@ def game_screen(window):
                     # Dependendo da tecla, altera a velocidade.
                     keys_down[event.key] = True
                     if event.key == pygame.K_LEFT:
-                        player.anda(-30,0)
+                        player.anda(-40,0)
                     if event.key == pygame.K_RIGHT:
-                        player.anda(30,0)
+                        player.anda(40,0)
                     if event.key == pygame.K_UP:
-                        player.anda(0,-30)
+                        player.anda(0,-40)
                     if event.key == pygame.K_DOWN:
-                        player.anda(0,30)
+                        player.anda(0,40)
                 # Verifica se soltou alguma tecla.
                 
         # ----- Atualiza estado do jogo
@@ -68,24 +74,6 @@ def game_screen(window):
         all_sprites.update()
 
         if state == PLAYING:
-            # Verifica se houve colisão entre tiro e meteoro
-            hits = pygame.sprite.groupcollide(all_meteors, all_bullets, True, True, pygame.sprite.collide_mask)
-            for meteor in hits: # As chaves são os elementos do primeiro grupo (meteoros) que colidiram com alguma bala
-                # O meteoro e destruido e precisa ser recriado
-                assets[DESTROY_SOUND].play()
-                C = Carro(assets)
-                all_sprites.add(C)
-                all_meteors.add(C)
-
-                # No lugar do meteoro antigo, adicionar uma explosão.
-                explosao = Explosion(meteor.rect.center, assets)
-                all_sprites.add(explosao)
-
-                # Ganhou pontos!
-                score += 100
-                if score % 1000 == 0:
-                    lives += 1
-
             # Verifica se houve colisão entre nave e meteoro
             hits = pygame.sprite.spritecollide(player, all_meteors, True, pygame.sprite.collide_mask)
             if len(hits) > 0:
