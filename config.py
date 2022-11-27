@@ -11,8 +11,8 @@ HEIGHT = 480 # Altura da tela
 FPS = 30 # Frames por segundo
 
 # Define tamanhos
-CARRO1_WIDTH = 60
-CARRO1_HEIGHT = 40
+CARRO1_WIDTH = 45
+CARRO1_HEIGHT = 30
 FROG_WIDTH = 50
 FROG_HEIGHT = 40
 

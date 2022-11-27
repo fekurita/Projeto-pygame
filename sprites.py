@@ -65,7 +65,7 @@ class Carro(pygame.sprite.Sprite):
         if  self.rect.right < 0 and self.speedx<0 :
             self.rect.x = WIDTH
         if  self.rect.left>WIDTH  and self.speedx> 0:
-            self.rect.x = 0
+            self.rect.right = 0
 
 
 

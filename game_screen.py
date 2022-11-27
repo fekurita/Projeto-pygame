@@ -60,13 +60,13 @@ def game_screen(window):
                     # Dependendo da tecla, altera a velocidade.
                     keys_down[event.key] = True
                     if event.key == pygame.K_LEFT:
-                        player.anda(-40,0)
+                        player.anda(-30,0)
                     if event.key == pygame.K_RIGHT:
-                        player.anda(40,0)
+                        player.anda(30,0)
                     if event.key == pygame.K_UP:
-                        player.anda(0,-40)
+                        player.anda(0,-30)
                     if event.key == pygame.K_DOWN:
-                        player.anda(0,40)
+                        player.anda(0,30)
                 # Verifica se soltou alguma tecla.
                 
         # ----- Atualiza estado do jogo
