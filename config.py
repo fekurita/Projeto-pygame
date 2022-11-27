@@ -8,7 +8,7 @@ FNT_DIR = path.join(path.dirname(__file__), 'assets', 'font')
 # Dados gerais do jogo.
 WIDTH = 320 # Largura da tela
 HEIGHT = 480 # Altura da tela
-FPS = 30 # Frames por segundo
+FPS = 24 # Frames por segundo
 
 # Define tamanhos
 CARRO1_WIDTH = 45

@@ -1,7 +1,7 @@
 import random
 import pygame
-from config import WIDTH, HEIGHT, CARRO1_WIDTH, CARRO1_HEIGHT, FROG_WIDTH, FROG_HEIGHT
-from assets import FROG_IMG,CARRO1_IMG, EXPLOSION_ANIM
+from config import WIDTH, HEIGHT
+from assets import FROG_IMG,CARRO1_IMG,CARRO2_IMG,CARRO3_IMG, EXPLOSION_ANIM
 
 
 class Frog(pygame.sprite.Sprite):
@@ -50,8 +50,12 @@ class Carro(pygame.sprite.Sprite):
     def __init__(self, assets,rua,vel,ini):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
-
-        self.image = assets[CARRO1_IMG]
+        if vel ==1 or vel ==-1:
+            self.image = assets[CARRO1_IMG]
+        if vel ==2 or vel ==-2:
+            self.image = assets[CARRO2_IMG]
+        if vel == 3 or vel == -3:
+            self.image = assets[CARRO3_IMG]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.x = ini
