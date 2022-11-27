@@ -13,8 +13,8 @@ FPS = 24 # Frames por segundo
 # Define tamanhos
 CARRO1_WIDTH = 45
 CARRO1_HEIGHT = 30
-FROG_WIDTH = 50
-FROG_HEIGHT = 40
+FROG_WIDTH = 30
+FROG_HEIGHT = 28
 
 # Define algumas variáveis com as cores básicas
 WHITE = (255, 255, 255)

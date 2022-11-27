@@ -4,7 +4,7 @@ from assets import load_assets, BOOM_SOUND, BACKGROUND, SCORE_FONT
 from sprites import Frog, Carro, Explosion
 
 #dicionario velocidade e local carros
-ruavel = [[360,-2,WIDTH],[360,-2,WIDTH*1.5],[320,1,0],[320,1,0-WIDTH*0.5],[280,-3,WIDTH],[280,-3,WIDTH*1.5],[200,2,0],[200,2,0-WIDTH*0.5],[160,-1,WIDTH],[160,-1,WIDTH*1.5],[120,3,0],[120,3,0-WIDTH*0.5],[80,-2,WIDTH],[80,-2,WIDTH*1.5],[40,3,0],[40,3,0-WIDTH*0.5]]
+ruavel = [[380,-2,WIDTH],[380,-2,WIDTH*1.5],[348,1,0],[348,1,0-WIDTH*0.5],[316,-3,WIDTH],[316,-3,WIDTH*1.5],[284,1,0],[284,1,0-WIDTH*0.5],[200,2,0],[200,2,0-WIDTH*0.5],[160,-1,WIDTH],[160,-1,WIDTH*1.5],[120,3,0],[120,3,0-WIDTH*0.5],[80,-2,WIDTH],[80,-2,WIDTH*1.5],[40,3,0],[40,3,0-WIDTH*0.5]]
 
 def game_screen(window):
     # Variável para o ajuste de velocidade
@@ -59,13 +59,13 @@ def game_screen(window):
                     # Dependendo da tecla, altera a velocidade.
                     keys_down[event.key] = True
                     if event.key == pygame.K_LEFT:
-                        player.anda(-30,0)
+                        player.anda(-32,0)
                     if event.key == pygame.K_RIGHT:
-                        player.anda(30,0)
+                        player.anda(32,0)
                     if event.key == pygame.K_UP:
-                        player.anda(0,-30)
+                        player.anda(0,-32)
                     if event.key == pygame.K_DOWN:
-                        player.anda(0,30)
+                        player.anda(0,32)
                 # Verifica se soltou alguma tecla.
                 
         # ----- Atualiza estado do jogo
