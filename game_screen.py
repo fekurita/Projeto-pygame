@@ -4,7 +4,7 @@ from assets import load_assets, BOOM_SOUND, BACKGROUND, SCORE_FONT
 from sprites import Frog, Carro, Explosion
 
 #dicionario velocidade e local carros
-ruavel = [[520,-2,WIDTH],[520,-2,WIDTH*1.5],[440,1,0],[440,1,0-WIDTH*0.5],[360,-3,WIDTH],[360,-3,WIDTH*1.5],[280,2,0],[280,2,0-WIDTH*0.5],[200,-1,WIDTH],[200,-1,WIDTH*1.5],[120,3,0],[120,3,0-WIDTH*0.5],[40,-2,WIDTH],[60,-2,WIDTH*1.5]]
+ruavel = [[360,-2,WIDTH],[360,-2,WIDTH*1.5],[320,1,0],[320,1,0-WIDTH*0.5],[280,-3,WIDTH],[280,-3,WIDTH*1.5],[200,2,0],[200,2,0-WIDTH*0.5],[160,-1,WIDTH],[160,-1,WIDTH*1.5],[120,3,0],[120,3,0-WIDTH*0.5],[80,-2,WIDTH],[80,-2,WIDTH*1.5],[40,3,0],[40,3,0-WIDTH*0.5]]
 
 def game_screen(window):
     # Variável para o ajuste de velocidade

@@ -15,7 +15,7 @@ BOOM_SOUND = 'boom_sound'
 
 def load_assets():
     assets = {}
-    assets[BACKGROUND] = pygame.image.load(os.path.join(IMG_DIR, 'starfield.png')).convert()
+    assets[BACKGROUND] = pygame.image.load(os.path.join(IMG_DIR, 'Backgroundfinal.png')).convert()
     assets[CARRO1_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'carro1.png')).convert_alpha()
     assets[CARRO1_IMG] = pygame.transform.scale(assets['carro1_img'], (CARRO1_WIDTH, CARRO1_HEIGHT))
     assets[FROG_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'frog1.png')).convert_alpha()

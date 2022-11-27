@@ -6,13 +6,13 @@ SND_DIR = path.join(path.dirname(__file__), 'assets', 'snd')
 FNT_DIR = path.join(path.dirname(__file__), 'assets', 'font')
 
 # Dados gerais do jogo.
-WIDTH = 480 # Largura da tela
-HEIGHT = 600 # Altura da tela
+WIDTH = 320 # Largura da tela
+HEIGHT = 480 # Altura da tela
 FPS = 30 # Frames por segundo
 
 # Define tamanhos
-CARRO1_WIDTH = 80
-CARRO1_HEIGHT = 50
+CARRO1_WIDTH = 60
+CARRO1_HEIGHT = 40
 FROG_WIDTH = 50
 FROG_HEIGHT = 40
 
