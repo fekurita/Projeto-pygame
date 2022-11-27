@@ -1,7 +1,7 @@
 import random
 import pygame
-from config import WIDTH, HEIGHT, METEOR_WIDTH, METEOR_HEIGHT, SHIP_WIDTH, SHIP_HEIGHT
-from assets import SHIP_IMG, PEW_SOUND, METEOR_IMG, BULLET_IMG, EXPLOSION_ANIM
+from config import WIDTH, HEIGHT, CARRO1_WIDTH, CARRO1_HEIGHT, FROG_WIDTH, FROG_HEIGHT
+from assets import FROG_IMG,CARRO1_IMG, EXPLOSION_ANIM
 
 
 class Frog(pygame.sprite.Sprite):
@@ -9,7 +9,7 @@ class Frog(pygame.sprite.Sprite):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = assets[SHIP_IMG]
+        self.image = assets[FROG_IMG]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.centerx = WIDTH / 2
@@ -51,7 +51,7 @@ class Carro(pygame.sprite.Sprite):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = assets[METEOR_IMG]
+        self.image = assets[CARRO1_IMG]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.x = ini
@@ -64,7 +64,7 @@ class Carro(pygame.sprite.Sprite):
         # se passar da tela
         if  self.rect.right < 0 and self.speedx<0 :
             self.rect.x = WIDTH
-        if  self.rect.left>WIDTH and self.speedx>0 :
+        if  self.rect.left>WIDTH  and self.speedx> 0:
             self.rect.x = 0
 
 

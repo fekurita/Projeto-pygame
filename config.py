@@ -11,10 +11,10 @@ HEIGHT = 600 # Altura da tela
 FPS = 30 # Frames por segundo
 
 # Define tamanhos
-METEOR_WIDTH = 50
-METEOR_HEIGHT = 40
-SHIP_WIDTH = 50
-SHIP_HEIGHT = 40
+CARRO1_WIDTH = 80
+CARRO1_HEIGHT = 50
+FROG_WIDTH = 50
+FROG_HEIGHT = 40
 
 # Define algumas variáveis com as cores básicas
 WHITE = (255, 255, 255)
