@@ -30,7 +30,6 @@ def game_screen(window):
         vel = coord[1]
         ini = coord[2]
         Carros = Carro(assets,rua,vel,ini)
-        print(rua,vel,ini)
         all_sprites.add(Carros)
         all_meteors.add(Carros)
 
