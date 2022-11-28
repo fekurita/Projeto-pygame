@@ -86,8 +86,6 @@ def game_screen(window):
                 if player.rect.y<Ymax:
                     Ymax = player.rect.y
                     score +=1000
-            print(Ymax)
-            print(player.rect.y)
             # Verifica se houve colisão entre carro e sapo
             hits = pygame.sprite.spritecollide(player, all_carros, False, pygame.sprite.collide_mask)
             if len(hits) > 0:
