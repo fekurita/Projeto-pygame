@@ -12,14 +12,12 @@ def game_screen(window):
 
     assets = load_assets()
 
-    # Criando um grupo de meteoros
+    # Criando um grupo de carros
     all_sprites = pygame.sprite.Group()
-    all_meteors = pygame.sprite.Group()
-    all_bullets = pygame.sprite.Group()
+    all_carros = pygame.sprite.Group()
     groups = {}
     groups['all_sprites'] = all_sprites
-    groups['all_meteors'] = all_meteors
-    groups['all_bullets'] = all_bullets
+    groups['all_meteors'] = all_carros
 
     # Criando o jogador
     player = Frog(groups, assets)
@@ -31,11 +29,11 @@ def game_screen(window):
         ini = coord[2]
         Carros = Carro(assets,rua,vel,ini)
         all_sprites.add(Carros)
-        all_meteors.add(Carros)
+        all_carros.add(Carros)
 
     DONE = 0
     PLAYING = 1
-    EXPLODING = 2
+    DYING = 2
     state = PLAYING
 
     keys_down = {}
@@ -73,22 +71,18 @@ def game_screen(window):
         all_sprites.update()
 
         if state == PLAYING:
-            # Verifica se houve colisão entre nave e meteoro
-            hits = pygame.sprite.spritecollide(player, all_meteors, True, pygame.sprite.collide_mask)
+            # Verifica se houve colisão entre carro e sapo
+            hits = pygame.sprite.spritecollide(player, all_carros, False, pygame.sprite.collide_mask)
             if len(hits) > 0:
-                # Toca o som da colisão
-                assets[BOOM_SOUND].play()
                 player.kill()
                 lives -= 1
-                explosao = Explosion(player.rect.center, assets)
-                all_sprites.add(explosao)
-                state = EXPLODING
+                state = DYING
                 keys_down = {}
-                explosion_tick = pygame.time.get_ticks()
-                explosion_duration = explosao.frame_ticks * len(explosao.explosion_anim) + 400
-        elif state == EXPLODING:
+                dying_tick = pygame.time.get_ticks()
+                dying_duration =500
+        elif state == DYING:
             now = pygame.time.get_ticks()
-            if now - explosion_tick > explosion_duration:
+            if now - dying_tick > dying_duration:
                 if lives == 0:
                     state = DONE
                 else:
