@@ -1,7 +1,7 @@
 import pygame
 from config import FPS, WIDTH, HEIGHT, BLACK, YELLOW, RED
 from assets import load_assets, BOOM_SOUND, BACKGROUND, SCORE_FONT
-from sprites import Frog, Carro, Explosion
+from sprites import Frog, Carro
 
 #dicionario velocidade e local carros
 ruavel = [[380,-2,WIDTH],[380,-2,WIDTH*1.5],[348,1,0],[348,1,0-WIDTH*0.5],[316,-3,WIDTH],[316,-3,WIDTH*1.5],[284,1,0],[284,1,0-WIDTH*0.5],[220,2,0],[220,2,0-WIDTH*0.5],[188,-1,WIDTH],[188,-1,WIDTH*1.5],[156,3,0],[156,3,0-WIDTH*0.5],[124,-2,WIDTH],[124,-2,WIDTH*1.5],[92,1,0],[92,1,0-WIDTH*0.5],[60,-1,WIDTH],[60,-1,WIDTH*1.5]]
@@ -37,6 +37,8 @@ def game_screen(window):
     state = PLAYING
 
     keys_down = {}
+    Ymax = 435
+    T = False
     score = 0
     lives = 3
 
@@ -67,15 +69,32 @@ def game_screen(window):
                 # Verifica se soltou alguma tecla.
                 
         # ----- Atualiza estado do jogo
-        # Atualizando a posição dos meteoros
+        # Atualizando a posição dos carros
         all_sprites.update()
 
         if state == PLAYING:
+            #score do jogo
+            if Ymax == 435 and player.rect.y<435:
+                Ymax = player.rect.y
+                score +=1000
+            if Ymax == -13:
+                if player.rect.y==19:
+                    T = False
+                if player.rect.y == 435:
+                    Ymax = 435
+            if Ymax<435:
+                if player.rect.y<Ymax:
+                    Ymax = player.rect.y
+                    score +=1000
+            print(Ymax)
+            print(player.rect.y)
             # Verifica se houve colisão entre carro e sapo
             hits = pygame.sprite.spritecollide(player, all_carros, False, pygame.sprite.collide_mask)
             if len(hits) > 0:
                 player.kill()
                 lives -= 1
+                Ymax = 435
+                score -=200
                 state = DYING
                 keys_down = {}
                 dying_tick = pygame.time.get_ticks()
