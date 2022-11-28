@@ -43,8 +43,8 @@ class Frog(pygame.sprite.Sprite):
             self.rect.left = 0
         if self.rect.bottom > HEIGHT:
             self.rect.bottom = HEIGHT
-        if self.rect.top < 0:
-            self.rect.top = 0
+        if self.rect.bottom < 10:
+            self.rect.bottom  = HEIGHT
 
 class Carro(pygame.sprite.Sprite):
     def __init__(self, assets,rua,vel,ini):
