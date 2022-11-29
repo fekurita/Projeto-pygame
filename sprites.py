@@ -26,7 +26,7 @@ class Frog(pygame.sprite.Sprite):
         #Verifica se já pode andar
         now=pygame.time.get_ticks()
         elapsed_ticks = now-self.last_move
-        #se ja pode se ja pode andar...
+        #se ja pode andar...
         if elapsed_ticks>self.move_ticks:
             #marca tick da nova imagem
             self.last_move=now
