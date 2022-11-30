@@ -4,7 +4,7 @@ print("teste")
 import pygame
 import random
 from config import WIDTH, HEIGHT, INIT, GAME, QUIT
-from init_screen import init_screen
+from init_screen import init_screen, end_screen
 from game_screen import game_screen
 
 
@@ -22,6 +22,7 @@ while state != QUIT:
     elif state == GAME:
         state = game_screen(window)
     else:
+        state = end_screen(window)
         state = QUIT
 
 # ===== Finalização =====

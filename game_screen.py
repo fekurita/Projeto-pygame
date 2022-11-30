@@ -1,7 +1,8 @@
 import pygame
-from config import FPS, WIDTH, HEIGHT, BLACK, YELLOW, RED
+from config import FPS, WIDTH, HEIGHT, BLACK, YELLOW, RED, GREEN
 from assets import load_assets, BOOM_SOUND, BACKGROUND, SCORE_FONT
 from sprites import Frog, Carro
+import time
 
 #dicionario velocidade e local carros
 ruavel = [[380,-2,WIDTH],[380,-2,WIDTH*1.5],[348,1,0],[348,1,0-WIDTH*0.5],[316,-3,WIDTH],[316,-3,WIDTH*1.5],[284,1,0],[284,1,0-WIDTH*0.5],[220,2,0],[220,2,0-WIDTH*0.5],[188,-1,WIDTH],[188,-1,WIDTH*1.5],[156,3,0],[156,3,0-WIDTH*0.5],[124,-2,WIDTH],[124,-2,WIDTH*1.5],[92,1,0],[92,1,0-WIDTH*0.5],[60,-1,WIDTH],[60,-1,WIDTH*1.5]]
@@ -41,6 +42,7 @@ def game_screen(window):
     T = False
     score = 0
     lives = 3
+    placar = False
 
     # ===== Loop principal =====
     pygame.mixer.music.play(loops=-1)
@@ -100,8 +102,9 @@ def game_screen(window):
         elif state == DYING:
             now = pygame.time.get_ticks()
             if now - dying_tick > dying_duration:
-                if lives == 0:
+                if lives <= 0:
                     state = DONE
+                    placar = True
                 else:
                     state = PLAYING
                     player = Frog(groups, assets)
@@ -119,6 +122,14 @@ def game_screen(window):
         text_rect.midtop = (WIDTH / 2,  10)
         window.blit(text_surface, text_rect)
 
+        if placar == True:
+            text_surface = assets[SCORE_FONT].render("{:08d}".format(score), True, GREEN)
+            text_rect = text_surface.get_rect()
+            text_rect.midtop = (WIDTH / 2,  HEIGHT/2)
+            window.blit(text_surface, text_rect)
+            pygame.display.update()
+            time.sleep(3)
+        
         # Desenhando as vidas
         text_surface = assets[SCORE_FONT].render(chr(9829) * lives, True, RED)
         text_rect = text_surface.get_rect()
