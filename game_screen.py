@@ -18,7 +18,7 @@ def game_screen(window):
     all_carros = pygame.sprite.Group()
     groups = {}
     groups['all_sprites'] = all_sprites
-    groups['all_meteors'] = all_carros
+    groups['all_carros'] = all_carros
 
     # Criando o jogador
     player = Frog(groups, assets)
