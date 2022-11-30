@@ -28,9 +28,9 @@ def load_assets():
     assets[CARRO3_IMG] = pygame.transform.scale(assets['carro3_img'], (CARRO1_WIDTH, CARRO1_HEIGHT))
     assets[FROG_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'frog1.png')).convert_alpha()
     explosion_anim = []
-    for i in range(9):
-        # Os arquivos de animação são numerados de 00 a 08
-        filename = os.path.join(IMG_DIR, 'regularExplosion0{}.png'.format(i))
+    for i in range(3):
+        # Os arquivos de animação são numerados de 0 a 3
+        filename = os.path.join(IMG_DIR, 'froganim{}.png'.format(i))
         img = pygame.image.load(filename).convert()
         img = pygame.transform.scale(img, (32, 32))
         explosion_anim.append(img)
