@@ -1,7 +1,7 @@
 import random
 import pygame
 from config import WIDTH, HEIGHT
-from assets import FROG_IMG,CARRO1_IMG,CARRO2_IMG,CARRO3_IMG,CARRO1re_IMG,CARRO2re_IMG,CARRO3re_IMG
+from assets import FROG_IMG,CARRO1_IMG,CARRO2_IMG,CARRO3_IMG,CARRO1re_IMG,CARRO2re_IMG,CARRO3re_IMG, EXPLOSION_ANIM
 
 
 class Frog(pygame.sprite.Sprite):
@@ -32,8 +32,7 @@ class Frog(pygame.sprite.Sprite):
             self.last_move=now
             self.rect.x += speedx
             self.rect.y += speedy
-       
-
+        
     def update(self):
 
         # Mantem dentro da tela
@@ -45,6 +44,7 @@ class Frog(pygame.sprite.Sprite):
             self.rect.bottom = HEIGHT
         if self.rect.bottom < 10:
             self.rect.bottom  = HEIGHT
+
 
 class Carro(pygame.sprite.Sprite):
     def __init__(self, assets,rua,vel,ini):
@@ -67,7 +67,7 @@ class Carro(pygame.sprite.Sprite):
         self.rect.x = ini
         self.rect.y = rua
         self.speedx = vel
-
+       
     def update(self):
         # Atualizando a posição do carro
         self.rect.x += self.speedx
@@ -118,10 +118,10 @@ class Explosion(pygame.sprite.Sprite):
             # Verifica se já chegou no final da animação.
             if self.frame == len(self.explosion_anim):
                 # Se sim, tchau explosão!
-                self.kill()
-            else:
-                # Se ainda não chegou ao fim da explosão, troca de imagem.
-                center = self.rect.center
-                self.image = self.explosion_anim[self.frame]
-                self.rect = self.image.get_rect()
-                self.rect.center = center
+                self.frame=0
+            
+            # Se ainda não chegou ao fim da explosão, troca de imagem.
+            center = self.rect.center
+            self.image = self.explosion_anim[self.frame]
+            self.rect = self.image.get_rect()
+            self.rect.center = center
