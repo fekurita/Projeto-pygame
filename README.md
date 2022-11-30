@@ -5,3 +5,6 @@ A proposta do nosso projeto, foi trazer um jogo que entretesse seus usuáriose e
 construção da sua física. O jogo se baseia no cotidiano de um sapo que atravessa as avenidas de uma metrópole e desvia dos veículos das 
 movimentadas avenidas, a cada movimento vertical a pontuação do personagem aumenta, e a cada morte o jogador perde 200 pontos. O personagem
 tem um total de 3 vidas que após o final delas o jogo fecha com uma tela de game over e a pontuação total do jogador.
+
+Segue o link para vídeo do jogo em ação:
+https://youtu.be/9cfN_60MuAU
