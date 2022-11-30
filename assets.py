@@ -6,10 +6,16 @@ from config import CARRO1_HEIGHT, CARRO1_WIDTH, FROG_WIDTH, FROG_HEIGHT, IMG_DIR
 BACKGROUND = 'background'
 CARRO1_IMG = 'carro1_img'
 CARRO1_IMG = 'carro1_img'
+CARRO1re_IMG = 'carro1re_img'
+CARRO1re_IMG = 'carro1re_img'
 CARRO2_IMG = 'carro2_img'
 CARRO2_IMG = 'carro2_img'
+CARRO2re_IMG = 'carro2re_img'
+CARRO2re_IMG = 'carro2re_img'
 CARRO3_IMG = 'carro3_img'
 CARRO3_IMG = 'carro3_img'
+CARRO3re_IMG = 'carro3re_img'
+CARRO3re_IMG = 'carro3re_img'
 FROG_IMG = 'frog_img'
 FROG_IMG = 'ship_img'
 EXPLOSION_ANIM = 'explosion_anim'
@@ -22,10 +28,16 @@ def load_assets():
     assets[BACKGROUND] = pygame.image.load(os.path.join(IMG_DIR, 'Backgroundfinal.png')).convert()
     assets[CARRO1_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'carro1.png')).convert_alpha()
     assets[CARRO1_IMG] = pygame.transform.scale(assets['carro1_img'], (CARRO1_WIDTH, CARRO1_HEIGHT))
+    assets[CARRO1re_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'carro1 ré.png')).convert_alpha()
+    assets[CARRO1re_IMG] = pygame.transform.scale(assets['carro1re_img'], (CARRO1_WIDTH, CARRO1_HEIGHT))
     assets[CARRO2_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'carro2.png')).convert_alpha()
     assets[CARRO2_IMG] = pygame.transform.scale(assets['carro2_img'], (CARRO1_WIDTH, CARRO1_HEIGHT))   
+    assets[CARRO2re_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'carro2 ré.png')).convert_alpha()
+    assets[CARRO2re_IMG] = pygame.transform.scale(assets['carro2re_img'], (CARRO1_WIDTH, CARRO1_HEIGHT))
     assets[CARRO3_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'carro3.png')).convert_alpha()
     assets[CARRO3_IMG] = pygame.transform.scale(assets['carro3_img'], (CARRO1_WIDTH, CARRO1_HEIGHT))
+    assets[CARRO3re_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'carro3 ré.png')).convert_alpha()
+    assets[CARRO3re_IMG] = pygame.transform.scale(assets['carro3re_img'], (CARRO1_WIDTH, CARRO1_HEIGHT))
     assets[FROG_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'frog1.png')).convert_alpha()
     explosion_anim = []
     for i in range(9):
